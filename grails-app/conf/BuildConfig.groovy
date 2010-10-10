@@ -21,6 +21,7 @@ grails.project.dependency.resolution = {
         // from public Maven repositories
         mavenLocal()
         mavenCentral()
+        mavenRepo "http://eaio.com/maven2"
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
@@ -30,5 +31,6 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.5'
+        runtime 'com.eaio.uuid:uuid:3.2'
     }
 }
