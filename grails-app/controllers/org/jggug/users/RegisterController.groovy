@@ -18,16 +18,35 @@ class RegisterController {
     }
 
     def edit = {
-        def person = Person.findByUsername(principal.username)
-        if(springSecurityService.isLoggedIn() && person){
+        if(springSecurityService.isLoggedIn()){
+            def person = Person.findByUsername(principal.username)
             [person:person]
         }else{
-            redirect(action:'edit', params:[username:principal.username])
+            redirect(uri:'/')
         }
     }
 
     def update = {
-        //TODO update
+        if(springSecurityService.isLoggedIn() && params.username && params.username == principal.username){
+            def person = Person.get(principal.id)
+            if(person){
+                if(params.passwd && params.repasswd && params.passwd == params.repasswd){
+                    person.password = springSecurityService.encodePassword(params.passwd)
+                }
+                person.email = params.email
+                person.userRealName = params.userRealName
+                if(person.validate()){
+                    person.save(flush:true)
+                    flash.message = 'Updated User Info.'
+                    redirect(action:'edit')
+                }else{
+                    flash.message = 'Updated Error.'
+                    render(view:'edit',model:[person:person])
+                }
+            }
+        }else{
+            redirect(uri:'/')
+        }
     }
 
     def entry = {

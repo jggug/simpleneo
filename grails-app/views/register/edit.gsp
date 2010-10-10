@@ -25,6 +25,7 @@
             <td valign='top' class='name'><label for='username'><g:message code="person.username.label" default="User Name" />:</label></td>
             <td valign='top' class="value ${hasErrors(bean:person,field:'username','errors')}">
                 <span class="edit_username">${person.username?.encodeAsHTML()}</span>
+                <input type="hidden" name='username' value="${person.username}"/>
             </td>
         </tr>
 
@@ -65,7 +66,7 @@
 
     <div class="buttons">
         <span class="formButton">
-            <input class='save' type="submit" value="${message(code: 'default.button.entry.label', default: 'Edit')}"></input>
+            <input class='save' type="submit" value="${message(code: 'default.button.entry.label', default: 'Update')}"></input>
         </span>
     </div>
 
