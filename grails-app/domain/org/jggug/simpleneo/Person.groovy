@@ -4,6 +4,8 @@ class Person {
 
 	String username
 	String userRealName
+	String email
+	String activateKey
 	String password
 	boolean enabled
 	boolean accountExpired
@@ -13,6 +15,8 @@ class Person {
 	static constraints = {
 		username blank: false, unique: true
 		userRealName blank: false
+		activateKey nullable: true
+		email nullable: false, blank: false, email: true
 		password blank: false
 	}
 
