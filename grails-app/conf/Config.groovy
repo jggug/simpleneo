@@ -92,3 +92,8 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.jggug.sim
 grails.plugins.springsecurity.authority.className = 'org.jggug.simpleneo.Authority'
 grails.plugins.springsecurity.requestMap.className = 'org.jggug.simpleneo.Requestmap'
 grails.plugins.springsecurity.securityConfigType = grails.plugins.springsecurity.SecurityConfigType.Requestmap
+
+
+simpleneo.contents.title="Grails.jp"
+simpleneo.contents.logoimg="http://grails.jp/images/logo_2.png"
+simpleneo.contents.footer.copy="&copy;2008-2010 jggug.org"
