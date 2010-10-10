@@ -13,12 +13,21 @@ class RegisterController {
 
     def index = {
         if(springSecurityService.isLoggedIn()){
-            redirect(action:'edit', params:[username:principal.username])
+            redirect(action:'edit')
         }
     }
 
     def edit = {
-        render(text:"")
+        def person = Person.findByUsername(principal.username)
+        if(springSecurityService.isLoggedIn() && person){
+            [person:person]
+        }else{
+            redirect(action:'edit', params:[username:principal.username])
+        }
+    }
+
+    def update = {
+        //TODO update
     }
 
     def entry = {

@@ -5,3 +5,8 @@
   margin-bottom:5px;
   text-align: right;
 }
+
+.edit_username {
+    font-size: 14px;
+    font-weight: bold;
+}
