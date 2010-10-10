@@ -85,3 +85,10 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'org.jggug.simpleneo.Person'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.jggug.simpleneo.PersonAuthority'
+grails.plugins.springsecurity.authority.className = 'org.jggug.simpleneo.Authority'
+grails.plugins.springsecurity.requestMap.className = 'org.jggug.simpleneo.Requestmap'
+grails.plugins.springsecurity.securityConfigType = grails.plugins.springsecurity.SecurityConfigType.Requestmap
