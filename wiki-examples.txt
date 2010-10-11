@@ -1,0 +1,62 @@
+h3. 表記ガイド
+
+h4. テキストの書式:
+
+*太字* » 太字
+
+_斜体_ » 斜体
+
+--打ち消し線-- » 打ち消し線
+
++下線+ » 下線
+
+h4. 見出し:
+\h1. 大見出し
+
+\h3. 中見出し
+
+\h4. 小見出し
+
+h4. リスト:
+\* 箇条書き
+* 箇条書き
+
+\# 番号付き
+# 番号付き
+
+h4. リンク作成:
+*ページへのリンク* - 
+
+\[タイトル#アンカー\]   \[タイトル\]
+
+*リモートリンク* - \[http://host.com\]
+
+h4. テーブル:
+||head1||head2||
+|olA1|colA2|
+|colB1|colB2|
+※若干バグ・・・有り
+
+h4. コード:
+{code}
+\{code\}
+    //code here
+\{code\}
+{code}
+{code:java}
+public class Book {
+  String name="title";
+}
+{code}
+{code:xml}
+<tag></tag>
+{code}
+h4. ライン
+-----
+h4. 画像
+!http://data.tumblr.com/ssAi2tLBi7axjdhnxt0LYgJ6_400.jpg!
+
+{code}\!http://data.tumblr.com/ssAi2tLBi7axjdhnxt0LYgJ6_400.jpg\!{code}
+
+h4. Table Bugチェック用
+|a|a|
