@@ -1,0 +1,59 @@
+apply plugin:"java"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.mortbay.jetty', name: 'jetty-embedded', version: '6.1.21'
+    compile group: 'org.mortbay.jetty', name: 'jetty-naming', version: '6.1.21'
+    compile group: 'org.mortbay.jetty', name: 'jetty-plus', version: '6.1.21'
+}
+
+defaultTasks 'buildStandaloneWar'
+
+def depsDir = file('target/build/dependencies')
+def outDir = file('target/build/out')
+def warDir = file('target/build/explodedWar')
+
+task extractDependencies << {
+    for(file in configurations.runtime) {
+        ant.unzip(src: file.absolutePath,
+                  dest: depsDir)
+    }
+    
+    ant.delete(dir: new File(depsDir, 'META-INF'))
+}
+
+task buildStarter(dependsOn: extractDependencies) << {
+
+    outDir.mkdirs()
+    
+    ant.javac(srcdir:'standalone-src', destdir: outDir,
+              fork: 'true', classpath: depsDir)
+    
+}
+
+task buildStandaloneWar(dependsOn: buildStarter) << {
+    if(project.hasProperty('inWar') && !project.hasProperty('outWar')) {
+      def warName = inWar[0..(inWar.indexOf('.war')-1)]
+
+      outWar = "build/$warName-standalone.war"
+    }
+
+    ant.unzip(src: inWar, dest: warDir)
+    
+    copy {
+        from depsDir
+        from outDir
+        into warDir
+    }
+
+    ant.manifest(file: new File(warDir, 'META-INF/MANIFEST.MF')) {
+        attribute(name: 'Main-Class', value: 'org.jggug.Starter')
+    }
+
+    ant.zip(destfile: "$outWar") {
+        fileset(dir: warDir)
+    }
+}
