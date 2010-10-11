@@ -1,4 +1,5 @@
 .DS_Store
 target/
 plugins/
-
+stacktrace.log
+.gradle/
