@@ -4,6 +4,7 @@ grails.project.test.reports.dir = "target/test-reports"
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 grails.project.plugins.dir="target/plugins"
 //grails.project.work.dir="target/work"
+grails.plugin.location."simple-wiki"="./plugins/simple-wiki"
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
