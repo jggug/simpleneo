@@ -1,0 +1,29 @@
+h2. Simple Neo
+
+moved from http://code.google.com/p/gcrnagoya/
+
+Grails Simple Wiki grails.jpに使用している、Grailsで実装された簡単なWiki「Simple」です。 
+Wiki機能本体は、Grails.orgで公開されている、radeoxをベースにした、 GrailsWikiEngine に若干の修正を加えた物を使用しています。
+
+h3. Setup
+
+<pre>
+git clone git@github.com:jggug/simpleneo.git
+cd simpleneo
+mkdir plugins
+cd plugins 
+git clone git@github.com:jggug/simple-wiki.git
+cd ../
+grails run-app
+</pre>
+
+
+h3. TODO
+
+* -解体- - -最新のGrailsにアップグレード-
+* -本体:ユーザ管理認証等-
+* -Wiki部分: Wiki部分をプラグイン化へ分離- see http://github.com/jggug/simple-wiki
+* submodule the plugins.
+* 追加機能(プラグイン)
+** 勉強会告知？
+** ニュース?
