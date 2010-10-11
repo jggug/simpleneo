@@ -1,5 +1,10 @@
 package org.jggug.simpleneo
 
+/**
+ * (未使用)検証用コントローラ
+ * @author Tsuyoshi Yamamoto
+ * @since 2010/10/11 13:37:47
+ */
 class HomeController {
 
     def wikiEngine

@@ -4,6 +4,12 @@ import static org.codehaus.groovy.grails.commons.ConfigurationHolder.config as c
 import java.net.URLDecoder
 import java.net.URLEncoder
 
+
+/**
+ * Wikiページコントローラ
+ * @author Tsuyoshi Yamamoto
+ * @since 2010/10/10 10:10:09
+ */
 class PageController {
     def wikiEngine
     def wikiContext
@@ -34,6 +40,9 @@ class PageController {
         }
     }
 
+    /**
+     * ページ作成ページ表示
+     */
     def createPage = {
         if(!springSecurityService.isLoggedIn()){
             redirect(uri:'/')
@@ -46,6 +55,9 @@ class PageController {
         render(view:'editPage', model:[page:page, mode:'create'])
     }
 
+    /**
+     * ページ保存
+     */
     def save = {
         if(springSecurityService.isLoggedIn()){
             Page page
@@ -72,6 +84,9 @@ class PageController {
         }
     }
 
+    /**
+     * 編集ページ表示
+     */
     def editPage = {
         if(!springSecurityService.isLoggedIn()){
             redirect(uri:'/')
@@ -89,5 +104,39 @@ class PageController {
     /** 編集プレビュー表示用 */
     def preview={
         render text:wiki.show(pageId:"0"){params.body}
+    }
+
+    /**
+     * ページ削除
+     */
+    def delete = {
+        if(!springSecurityService.isLoggedIn()){
+            redirect(uri:'/')
+            return
+        }
+
+        def page = Page.get( params.id )
+        if(page) {
+            if(page.pages.size()>0){
+                flash.message = "子ページが存在するため、ページ「${page}」を削除できません."
+                render(view:"editPage", model:[page : page,mode:"edit"])
+                return
+            }else if(page.page){
+                def parent = Page.get(page.page.id)
+                parent.removeFromPages(page)
+                page.delete()
+                flash.message =""
+                redirect(uri:"${createLink(url:'/display')}/${parent.title.encodeAsURL()}")
+                return
+            }else{
+                page.delete()
+                flash.message = ""
+            }
+            redirect(uri:'/')
+        }
+        else {
+            flash.message = "Page not found with id ${params}"
+            redirect(uri:'/')
+        }
     }
 }
