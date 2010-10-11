@@ -1,0 +1,202 @@
+#preview {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+}
+.wiki-content h1, .wiki-content h2, .wiki-content h3, .wiki-content h4, .wiki-content h5, .wiki-content h6 {
+  color: #035284;
+  font-weight: normal;
+  margin: .8em 0 .3em 0;
+}
+.wiki-content h1 { font-size: 22px; }
+.wiki-content h2 { font-size: 20px; }
+.wiki-content h3 { font-size: 18px; }
+.wiki-content h4 { font-size: 16px; }
+.wiki-content h5 { font-size: 14px; }
+
+.wiki-content ul {
+    margin: 10px 0px;
+}
+.wiki-content ul li {
+    list-style-type: disc;
+    margin: 2px 10px;
+}
+
+.wiki-content ol {
+    margin: 10px 0px;
+}
+.wiki-content ol li {
+    list-style-type: decimal;
+    margin: 2px 25px;
+}
+.wiki-content a {
+    font-weight: normal;
+    color: #00F;
+}
+.wiki-content .strike {
+    color:#999;
+}
+
+.child-pages ul li {
+    list-style-type: disc;
+    margin: 2px 25px;
+}
+
+.info {
+    background: #e2e0ff url("../images/icon-info.png") 13px 12px no-repeat;
+    padding: 10px 10px 10px 39px;
+    margin:10px 10px;
+}
+
+.warning {
+    background: #ffdede url("../images/icon-info.png") 13px 12px no-repeat;
+    padding: 10px 10px 15px 39px;
+    margin:10px 10px;
+}
+
+.note {
+    background: #fefecc url("../images/icon-info.png") 13px 12px no-repeat;
+    padding: 10px 10px 10px 39px;
+    margin:10px 10px;
+}
+
+.code {
+    background-color: #efefef;
+    border: 1px dashed #c5c5c5;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px;
+}
+
+.code pre {
+    font-family: Monaco, "Lucida Console", "Bitstream Vera Sans Mono", monospace;
+}
+
+code {
+    font-family: Monaco, "Lucida Console", "Bitstream Vera Sans Mono", monospace;
+}
+
+.groovy {
+  border: 1px dashed #999;
+  padding: 10px 10px 10px 10px;
+  margin:10px 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+.italic {
+  font-style: italic;
+}
+
+th, td {
+border: 0px solid #000000;
+}
+
+.wikiTable {
+  border-collapse:collapse;
+  margin:5px;
+}
+.wikiRowTh {
+    background-image: none;
+    background-color:#F0F0F0;
+    border:1px solid #CCCCCC;
+    padding:3px 4px;
+    text-align:center;
+}
+.wikiRowTd {
+    border:1px solid #CCCCCC;
+    padding:3px 4px;
+}
+.head_bar {
+  background-color:#021235;
+  color:white;
+  padding: 5px 5px 5px 5px;
+  margin-bottom:5px;
+  text-align: right;
+}
+.pagetitle {
+  font-family:Arial,sans-serif;
+  font-size:22px;
+  font-weight:bold;
+}
+.infomation_bar {
+  font-size:10px;
+  color:#666666; 
+  text-align:right;
+  width:100%;
+  margin:10px 0 0px 0;
+  padding:3px 0 0px 0;
+  border-top:1px dashed #CCC;
+  border-bottom:1px dashed #CCC;
+}
+
+/* code formatting */
+.code {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 5px 5px 5px 5px;
+  color: inherit;
+  background-color: #F0F0F0;
+  border: 1px dashed black;
+  font-family: courier, courier new, monospace;
+  font-size: 12px;
+  line-height: 100%;
+  white-space: pre;
+  width: 98%;
+  overflow: auto;
+  overflow: scroll -moz-scrollbars-horizontal;
+  overflow-x: auto;
+}
+
+
+.java-keyword {
+  font-weight: bold;
+  color: #0000aa;
+  background-color: inherit;
+}
+
+.java-object {
+  color: #000088;
+  background-color: inherit;
+}
+
+.java-quote {
+  color: #00aa00;
+  background-color: inherit;
+}
+
+.xml-keyword {
+  font-weight: bold;
+}
+
+.xml-tag {
+  color: #0000aa;
+  background-color: inherit;
+}
+
+#crumbs {
+  padding:4px 0px;
+  margin:10px 0px;
+  height:1.4em;
+  border:1px solid #dedede;
+}
+#crumbs li {
+  list-style-type:none;
+  float:left;
+  font-size: 12px;
+  color:#888;
+  padding-left:3px;
+}   
+#crumbs li a {
+  background:url(../images/crumbs.gif) no-repeat right center;
+  display:block;
+  padding:0 12px 0 0;
+}             
+#crumbs li a:link, #crumbs li a:visited {
+  text-decoration:none;
+  font-weight: normal;
+  color: #400080;
+} 
+#crumbs a:link, #crumbs a:visited, #crumbs li a:hover, #crumbs li a:focus {
+}
+
