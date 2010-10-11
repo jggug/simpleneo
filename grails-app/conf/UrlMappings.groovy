@@ -7,6 +7,10 @@ class UrlMappings {
 			}
 		}
 
+		"/display/$id"(controller:"page", action:"findByTitle")
+		"/create/$name"(controller:"page", action:"createPage")
+		"/edit/$id"(controller:"page", action:"editPage")
+
 		"/"(view:"/index")
 		"500"(view:'/error')
 	}
