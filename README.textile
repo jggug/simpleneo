@@ -17,6 +17,16 @@ cd ../
 grails run-app
 </pre>
 
+h4. Standalone option
+
+# DataSource の内容を変更
+# 以下のコマンドで生成
+<pre>
+grails war target/simpleneo.war
+gradle
+java -jar target/simpleneo-standalone.war
+</pre>
+
 
 h3. TODO
 
