@@ -10,9 +10,7 @@ h3. Setup
 <pre>
 git clone git@github.com:jggug/simpleneo.git
 cd simpleneo
-mkdir plugins
-cd plugins 
-git clone git@github.com:jggug/simple-wiki.git
+git submodule init && git submodule update
 cd ../
 grails run-app
 </pre>
@@ -32,8 +30,8 @@ h3. TODO
 
 * -解体- - -最新のGrailsにアップグレード-
 * -本体:ユーザ管理認証等-
-* -Wiki部分: Wiki部分をプラグイン化へ分離- see http://github.com/jggug/simple-wiki
-* submodule the plugins.
+* -Wiki部分: Wiki部分をプラグイン化へ分離- http://github.com/jggug/simple-wiki
+* -submodule the plugins.-
 * 追加機能(プラグイン)
 ** 勉強会告知？
 ** ニュース?
