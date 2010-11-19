@@ -95,6 +95,6 @@ grails.plugins.springsecurity.securityConfigType = grails.plugins.springsecurity
 
 
 simpleneo.contents.title="Grails.jp"
-simpleneo.contents.logoimg="http://grails.jp/images/logo_2.png"
+simpleneo.contents.logo="http://grails.jp/images/logo_2.png"
 simpleneo.contents.footer.copy="&copy;2008-2010 jggug.org"
 simple.wiki.content.class=org.jggug.simpleneo.Page

@@ -1,4 +1,9 @@
 <% def config = org.codehaus.groovy.grails.commons.ConfigurationHolder.getConfig() %>
+<%@ page import="org.jggug.simpleneo.Page" %>
+<%
+Page menu = Page.findByTitle('menu')
+String nonMenuMessage = '*you can add "menu" with page name* [menu]'
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -42,11 +47,22 @@
                 </div>
                 <%/** ロゴブロック */%>
                 <div class="logo">
-                  <a class="home" href="${createLinkTo(dir:'')}">
-                   <span style="font-size:32px;">
-                     <img src="${resource(dir:'images',file:'logo_2.png')}" border="0" align="middle"/>
-                   </span>
-                  </a>
+                    <a class="home" href="${createLinkTo(uri:'/')}">
+                    <g:if test="${config.simpleneo.contents.logo!=''}">
+                        <g:if test="${config.simpleneo.contents.logo.toString().startsWith('http')}">
+                        <span style="font-size:32px;">
+                            <img src="${config.simpleneo.contents.logo}" border="0" align="middle"/>
+                        </span>
+                        </g:if>
+                        <g:else>
+                            <div class="titlelogo">${config.simpleneo.contents.logo}</div>
+                        </g:else>
+                    </g:if>
+                    <g:else>
+                        <div class="titlelogo">SimpleWiki</div>
+                    </g:else>
+                    </a>
+
                   <g:if test="${page}">
                     <a href="${createLinkTo(url:'/')}/display/${page.title}">
                     <span style="font-size:22px;font-weight:bold;">${page.title}</span>
@@ -65,7 +81,24 @@
             </div>
             <div class="yui-b">
                 <%/*Menu*/%>
-                <g:pageProperty name="page.menu"/>
+                <div class="wiki-content" style="width:100%;margin:15px 0 20px 0;">
+                    <sec:ifLoggedIn>
+                        <div class="nav">
+                            <span class="menuButton">
+                              <a href="${createLink(uri:'/create/new')}" class="create">Add Page</a>
+                            </span>
+                        </div>
+                    </sec:ifLoggedIn>
+                    <g:pageProperty name="page.menu"/>
+                    <wiki:show pageId="${menu?.id}">
+                        <sec:ifNotLoggedIn>
+                            ${menu?.body}
+                        </sec:ifNotLoggedIn>
+                        <sec:ifLoggedIn>
+                            ${(menu)?menu.body:nonMenuMessage}
+                        </sec:ifLoggedIn>
+                    </wiki:show>
+                </div>
             </div>
         </div>
         <div id="ft" style="margin-top:10px;text-align:center;">

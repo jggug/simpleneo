@@ -1,7 +1,7 @@
 <%@ page import="org.jggug.simpleneo.Page" %>
 <%
-def page = Page.findByTitle('top')
-def menu = Page.findByTitle('menu')
+Page page = Page.findByTitle('top')
+String nonIndexMessage = '*Please create "top" Page* [top]'
 %>
 <html>
     <head>
@@ -11,24 +11,18 @@ def menu = Page.findByTitle('menu')
     <body>
         <div id="pageBody">
             <div class="wiki-content" style="width:100%;margin:15px 0 20px 0;">
-              <wiki:show pageId="${page?.id}">
-                ${page?.body}
-              </wiki:show>
+                <wiki:show pageId="${page?.id}">
+                <sec:ifNotLoggedIn>
+                    ${page?.body}
+                </sec:ifNotLoggedIn>
+                <sec:ifLoggedIn>
+                    ${(page)?page.body:nonIndexMessage}
+                </sec:ifLoggedIn>
+                </wiki:show>
             </div>
         </div>
         <content tag="menu">
-            <div class="wiki-content" style="width:100%;margin:15px 0 20px 0;">
-              <wiki:show pageId="${menu?.id}">
-                ${menu?.body}
-              </wiki:show>
-            </div>
-            <sec:ifLoggedIn>
-                <div class="nav">
-                    <span class="menuButton">
-                      <a href="${createLink(uri:'/create/new')}" class="create">新規ページ追加</a>
-                    </span>
-                </div>
-            </sec:ifLoggedIn>
+
         </content>
     </body>
 </html>

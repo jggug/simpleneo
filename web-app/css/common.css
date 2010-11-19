@@ -10,3 +10,14 @@
     font-size: 14px;
     font-weight: bold;
 }
+.titlelogo {
+    font: 20px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+    font-weight: bold;
+    background-color: #000058;
+    color: #FFF;
+    display: inline;
+    padding: 4px 15px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
