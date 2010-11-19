@@ -1,0 +1,3 @@
+[submodule "plugins/simple-wiki"]
+	path = plugins/simple-wiki
+	url = git@github.com:jggug/simple-wiki.git
